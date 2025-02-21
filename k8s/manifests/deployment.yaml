@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: hello-world
+  name: caalbert
   labels:
-    app: hello-world
+    app: caalbert
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
-      app: hello-world
+      app: caalbert
   template:
     metadata:
       labels:
-        app: hello-world
+        app: caalbert
     spec:
       containers:
-        - name: nginx
-          image: nginx:latest
+        - name: caalbert
+          image: wil42/playground:v1
           ports:
-            - containerPort: 80
+            - containerPort: 8888
