@@ -5,7 +5,7 @@ This is a k8s app to deploy a hello wolrd App using by ArgoCD.
 # Build Image
 
 ```bash
-docker build -t caalbert42:v2 .
+docker build -t caalbert42:v1 .
 ```
 
 # Run Image

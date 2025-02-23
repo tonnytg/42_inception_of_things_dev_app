@@ -23,3 +23,35 @@ spec:
             limits:
               memory: "128Mi"
               cpu: "500m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: caalbert-service
+spec:
+  selector:
+    app: caalbert
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: caalbert-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+  namespace: dev
+spec:
+  rules:
+    # Gerenic rule for all paths
+    - http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: caalbert-service
+                port:
+                  number: 8080

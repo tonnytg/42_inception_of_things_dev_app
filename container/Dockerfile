@@ -5,4 +5,7 @@ RUN go build -o /go-http-server
 
 FROM alpine:3.12
 COPY --from=build /go-http-server /go-http-server
+
+EXPOSE 8080
+
 CMD ["/go-http-server"]
