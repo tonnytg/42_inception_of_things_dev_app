@@ -7,8 +7,8 @@ metadata:
   namespace: dev
 spec:
   rules:
-    - host:
-      http:
+    # Gerenic rule for all paths
+    - http:
         paths:
           - path: /
             pathType: Prefix
